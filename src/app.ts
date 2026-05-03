@@ -24,14 +24,16 @@ app.use(express.static("static", {
 app.set('trust proxy', 1);
 
 app.use(session({
+    proxy: true,
     secret: process.env.SESSION_SECRET!,
     resave: false,
     saveUninitialized: false,
-    cookie: { 
+    cookie: {
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
-        maxAge: 1000 * 60 * 60 * 5
-    } 
+        maxAge: 1000 * 60 * 60 * 5,
+        domain: process.env.NODE_ENV === "production" ? ".pickering.cloud" : undefined,
+    }
 }));
 
 app.use("/auth", authRouter);
