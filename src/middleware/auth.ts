@@ -1,5 +1,4 @@
 import "express-session";
-import { Store } from "express-session";
 
 declare module "express-session" {
     interface SessionData {
@@ -10,12 +9,6 @@ declare module "express-session" {
                 [key: string]: unknown;
             };
         };
-    }
-}
-
-declare module "express-serve-static-core" {
-    interface Request {
-        sessionStore: Store;
     }
 }
 

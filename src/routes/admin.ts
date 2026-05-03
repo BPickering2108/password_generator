@@ -3,6 +3,7 @@ import path from "path";
 import { requireAuth, requireRole } from "../middleware/auth";
 import { getCount, setCount } from "../utils/counter";
 import { getSettings, saveSettings } from "../utils/settings";
+import { Store } from "express-session";
 
 const router = Router();
 
@@ -46,7 +47,7 @@ router.post("/api/maintenance", (req: Request, res: Response) => {
 
 // Invalidate all sessions
 router.post("/api/sessions/invalidate", (req: Request, res: Response) => {
-    const sessionStore = req.sessionStore;
+    const sessionStore = req.sessionStore as Store;
 
     if (!sessionStore.clear) {
         res.status(501).json({ error: "Session store does not support clearing" });
