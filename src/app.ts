@@ -32,7 +32,7 @@ app.use(session({
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
         maxAge: 1000 * 60 * 60 * 5,
-        domain: process.env.NODE_ENV === "production" ? ".pickering.cloud" : undefined,
+        domain: process.env.NODE_ENV === "production" ? "password.pickering.cloud" : undefined,
     }
 }));
 

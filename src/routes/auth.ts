@@ -28,7 +28,17 @@ router.get("/callback", async (req: Request, res: Response) => {
             }
         };
 
-        res.redirect("/admin");
+        req.session.save((err) => {
+            if (err) console.error("Session save error:", err);
+            res.send(`
+                <html>
+                    <head>
+                        <meta http-equiv="refresh" content="0;url=/admin">
+                    </head>
+                    <body>Redirecting...</body>
+                </html>
+            `);
+        });
 
     } catch (err) {
         console.error("MSAL callback error:", err);
