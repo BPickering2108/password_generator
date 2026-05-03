@@ -14,6 +14,8 @@ router.get("/login", async (req: Request, res: Response) => {
 });
 
 router.get("/callback", async (req: Request, res: Response) => {
+    console.log("Callback hit - session ID:", req.sessionID);
+    console.log("Session:", req.session);
     try {
         const tokenResponse = await msalClient.acquireTokenByCode({
             code: req.query.code as string,
