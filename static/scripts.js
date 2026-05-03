@@ -210,6 +210,9 @@ function buildExclusions() {
     wrap.id = 'exclusions-wrap';
     wrap.className = 'hidden';
 
+    const divider = document.createElement('hr');
+    divider.className = 'divider';
+
     const label = document.createElement('div');
     label.className = 'section-label mb-2';
     label.textContent = 'Additional exclusions';
@@ -220,6 +223,7 @@ function buildExclusions() {
     input.className = 'field';
     input.placeholder = 'e.g.  @ £ ~';
 
+    wrap.appendChild(divider);
     wrap.appendChild(label);
     wrap.appendChild(input);
     return wrap;
@@ -311,7 +315,7 @@ function buildApp() {
     card.appendChild(buildDivider());
     card.appendChild(buildLengthInput());
     card.appendChild(buildPassphraseOptions());
-    card.appendChild(buildDivider());
+    //card.appendChild(buildDivider());
     card.appendChild(buildExclusions());
     card.appendChild(buildDivider());
     card.appendChild(buildOutput());
