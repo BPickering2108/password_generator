@@ -34,9 +34,9 @@ router.post("/generate", generateLimiter, (req: Request, res: Response) => {
 
         if (options.type === "passphrase") {
             const wordCount = options.wordCount ?? 4;
-            if (!Number.isInteger(wordCount) || wordCount < 3 || wordCount > 8) {
+            if (!Number.isInteger(wordCount) || wordCount < 2 || wordCount > 8) {
                 res.status(400).json({
-                    error: "Word count must be between 3 and 8"
+                    error: "Word count must be between 2 and 8"
                 });
                 return;
             }
