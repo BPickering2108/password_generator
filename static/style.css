@@ -1,0 +1,363 @@
+/* Base */
+body { font-family: 'DM Sans', sans-serif; }
+
+/* CSS variables for light/dark */
+:root {
+    --bg:        #FDFFFC;
+    --surface:   #ffffff;
+    --border:    #e4e4e4;
+    --text:      #000000;
+    --muted:     #6b6b6b;
+    --accent:    #7A306C;
+    --accent-fg: #FDFFFC;
+    --sage:      #73956F;
+    --lavender:  #C59FC9;
+    --output-text: var(--accent);
+}
+.dark {
+    --bg:        #0a0a0a;
+    --surface:   #141414;
+    --border:    #2a2a2a;
+    --text:      #FDFFFC;
+    --muted:     #888888;
+    --accent:    #7A306C;
+    --accent-fg: #FDFFFC;
+    --sage:      #73956F;
+    --lavender:  #C59FC9;
+    --output-text: var(--lavender);
+}
+
+/* Transitions */
+*, *::before, *::after {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* Card */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+/* Radio tabs */
+.type-radio { display: none; }
+.type-label {
+    cursor: pointer;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted);
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+.type-radio:checked + .type-label {
+    background: var(--accent);
+    color: var(--accent-fg);
+    border-color: var(--accent);
+}
+.type-label:hover:not(.active) {
+    color: var(--text);
+    border-color: var(--border);
+}
+
+/* Checkbox */
+.cb-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+.cb-wrap input[type="checkbox"] {
+    appearance: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.15s ease;
+}
+.cb-wrap input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l3.5 3.5L13 4' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cb-wrap span {
+    font-size: 0.875rem;
+    color: var(--text);
+}
+
+/* Inputs and selects */
+.field {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+.field:focus {
+    border-color: var(--lavender);
+}
+select.field {
+    cursor: pointer;
+}
+
+/* Output area */
+.output-box {
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    font-weight: 500;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    color: var(--output-text);
+    word-break: break-all;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    transition: border-color 0.2s ease;
+}
+.output-box.has-value {
+    border-color: var(--sage);
+}
+.output-placeholder {
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--accent);
+    color: var(--accent-fg);
+    border: none;
+    border-radius: 8px;
+    padding: 0.65rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.45rem 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.btn-ghost:hover {
+    border-color: var(--lavender);
+    color: var(--text);
+}
+.btn-ghost.success {
+    border-color: var(--sage);
+    color: var(--sage);
+}
+
+/* Divider */
+.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+}
+
+/* Section label */
+.section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* Counter */
+.counter-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 0.2rem 0.75rem;
+    color: var(--muted);
+}
+.counter-badge span {
+    color: var(--lavender);
+    font-weight: 500;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1;
+    width: 2.25rem;
+    text-align: center;
+    transition: all 0.15s ease;
+}
+.theme-toggle:hover {
+    border-color: var(--lavender);
+    color: var(--text);
+}
+
+/* Passphrase-only / password-only sections */
+.passphrase-opts, .length-opt { transition: opacity 0.2s ease; }
+.passphrase-opts.hidden, .length-opt.hidden {
+    display: none;
+}
+
+/* Error */
+.error-msg {
+    font-size: 0.8rem;
+    color: #e05c5c;
+    display: none;
+}
+.error-msg.visible { display: block; }
+
+/* Subtle grain overlay for depth */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+main { position: relative; z-index: 1; }
+
+.stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+}
+.stat-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--lavender);
+    line-height: 1.2;
+}
+.stat-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.25rem;
+}
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.2rem 0.65rem;
+    border-radius: 99px;
+    border: 1px solid var(--border);
+}
+.status-pill.online  { border-color: var(--sage);    color: var(--sage); }
+.status-pill.offline { border-color: #e05c5c;        color: #e05c5c; }
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+.admin-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+.admin-section-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+.feedback {
+    font-size: 0.8rem;
+    min-height: 1.2rem;
+    transition: color 0.2s ease;
+}
+.feedback.success { color: var(--sage); }
+.feedback.error   { color: #e05c5c; }
+.maint-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+}
+.toggle-switch {
+    position: relative;
+    width: 2.5rem;
+    height: 1.4rem;
+    cursor: pointer;
+}
+.toggle-switch input { display: none; }
+.toggle-track {
+    position: absolute;
+    inset: 0;
+    background: var(--border);
+    border-radius: 99px;
+    transition: background 0.2s ease;
+}
+.toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--muted);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.toggle-switch input:checked ~ .toggle-track { background: var(--accent); }
+.toggle-switch input:checked ~ .toggle-thumb {
+    transform: translateX(1.1rem);
+    background: white;
+}

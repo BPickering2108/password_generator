@@ -1,0 +1,352 @@
+# =============================================================================
+# OPERATING SYSTEM
+# =============================================================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.fuse_hidden*
+.Trash-*
+.nfs*
+
+# =============================================================================
+# EDITORS & IDEs
+# =============================================================================
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains (PyCharm, WebStorm, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Vim / Neovim
+*.swp
+*.swo
+Session.vim
+.netrwhist
+
+# Emacs
+\#*\#
+.\#*
+
+# Sublime Text
+*.sublime-workspace
+
+# =============================================================================
+# POWERSHELL
+# =============================================================================
+
+# Credentials and secrets
+*.credential
+*.cred
+*-Credential.xml
+*-Cred.xml
+SecureString.txt
+
+# Compiled module artifacts
+*.psd1.bak
+*.psm1.bak
+
+# PSake / Invoke-Build artifacts
+.build/
+build/
+
+# Pester test results
+TestResults.xml
+testResults/
+coverage.xml
+
+# PowerShell Gallery publishing
+*.nupkg
+
+# PSDepend / PSGallery temp
+RequiredModules/
+
+# =============================================================================
+# PYTHON
+# =============================================================================
+
+# Byte-compiled / optimised / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pyenv
+.python-version
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+pytest.ini.bak
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Flask
+instance/
+.webassets-cache
+
+# Scrapy
+.scrapy
+
+# Sphinx docs
+docs/_build/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytype
+.pytype/
+
+# Cython
+cython_debug/
+
+# ruff
+.ruff_cache/
+
+# uv
+.uv/
+
+# =============================================================================
+# WEB DEVELOPMENT
+# =============================================================================
+
+# Node / npm / yarn / pnpm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.yarn/
+.pnp.*
+package-lock.json.bak
+.npm
+.node_repl_history
+
+# Build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+.svelte-kit/
+.astro/
+.parcel-cache/
+.turbo/
+
+# Vite
+vite.config.ts.timestamp-*
+
+# Sass / CSS preprocessors
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# TypeScript
+*.tsbuildinfo
+
+# ESLint / Prettier cache
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# Testing
+coverage/
+.nyc_output/
+cypress/screenshots/
+cypress/videos/
+playwright-report/
+test-results/
+
+# Storybook
+storybook-static/
+
+# =============================================================================
+# SECRETS & ENVIRONMENT
+# =============================================================================
+
+# Generic secrets / config
+.env
+.env.*
+*.env
+secrets.json
+secrets.yaml
+secrets.yml
+config.local.*
+appsettings.local.json
+appsettings.Development.json
+
+# Certificates & keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.csr
+id_rsa
+id_ed25519
+*.pub
+
+# Azure
+azureauth.json
+.azure/
+
+# Terraform / OpenTofu
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ansible
+*.vault
+vault_password_file
+
+# =============================================================================
+# DATABASES
+# =============================================================================
+
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.mdb
+*.accdb
+dump.sql
+*.dump
+
+# =============================================================================
+# LOGS & TEMPORARY FILES
+# =============================================================================
+
+logs/
+*.log
+*.log.*
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*.old
+~$*
+Transcript_*.txt
+
+# =============================================================================
+# MISCELLANEOUS
+# =============================================================================
+
+# Archives (unlikely to belong in source control)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Docker
+.docker/
+
+# Git worktrees / patches
+*.patch
+*.diff
+
+data/
+package-lock.json
+
+# =============================================================================
+# EXCEPTIONS
+# =============================================================================
+!*.example
+!.env.template
+!.vscode/extensions.json

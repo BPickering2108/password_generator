@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcanum - Admin</title>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        plum:     '#7A306C',
+                        chalk:    '#FDFFFC',
+                        sage:     '#73956F',
+                        lavender: '#C59FC9',
+                    },
+                    fontFamily: {
+                        display: ['"DM Serif Display"', 'serif'],
+                        body:    ['"DM Sans"', 'sans-serif'],
+                        mono:    ['"DM Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/admin.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<script>
+    const saved = localStorage.getItem('theme') ?? 'dark';
+    document.documentElement.classList.toggle('dark', saved === 'dark');
+</script>
+<main class="max-w-lg mx-auto px-4 py-10">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h1 class="font-display text-3xl" style="color: var(--text);">
+                Arcanum <em style="color: var(--accent);">Admin</em>
+            </h1>
+            <p class="text-xs mt-0.5" id="greeting" style="color: var(--muted);">Loading...</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="/" class="btn-ghost" style="text-decoration:none;">Home</a>
+            <form method="POST" action="/auth/logout" style="display:inline;">
+                <button type="submit" class="btn-ghost">Sign out</button>
+            </form>
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme">☀</button>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-3 mb-5">
+        <div class="stat-card">
+            <div class="stat-value" id="stat-counter">—</div>
+            <div class="stat-label">Generated</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="stat-uptime">—</div>
+            <div class="stat-label">Uptime</div>
+        </div>
+        <div class="stat-card flex flex-col justify-between">
+            <div class="stat-label mb-2">Status</div>
+            <div id="stat-maintenance">
+                <span class="status-pill online">
+                    <span class="status-dot"></span> Online
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Counter reset -->
+    <div class="admin-section mb-4">
+        <div class="admin-section-title">Counter reset</div>
+        <div class="flex gap-2 items-center mb-3">
+            <input
+                type="number"
+                id="counter-value"
+                class="field"
+                placeholder="0"
+                min="0"
+                style="width: 8rem;"
+            >
+            <button class="btn-primary" id="resetBtn" style="width:auto; padding: 0.65rem 1.25rem;">
+                Reset
+            </button>
+            <button class="btn-ghost" id="resetZeroBtn">
+                Reset to 0
+            </button>
+        </div>
+        <p class="feedback" id="counter-feedback"></p>
+    </div>
+
+    <!-- Maintenance -->
+    <div class="admin-section mb-4">
+        <div class="admin-section-title">Maintenance mode</div>
+        <div class="maint-toggle">
+            <div>
+                <p class="text-sm font-medium" style="color: var(--text);">Public access</p>
+                <p class="text-xs mt-0.5" style="color: var(--muted);">
+                    Disabling redirects all public traffic to the maintenance page
+                </p>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" id="maintToggle" checked>
+                <div class="toggle-track"></div>
+                <div class="toggle-thumb"></div>
+            </label>
+        </div>
+        <p class="feedback mt-3" id="maint-feedback"></p>
+    </div>
+
+    <!-- Session invalidation -->
+    <div class="admin-section mb-4">
+        <div class="admin-section-title">Session management</div>
+        <p class="text-sm mb-3" style="color: var(--muted);">
+            Invalidates all active sessions. You will be signed out immediately.
+        </p>
+        <button class="btn-ghost" id="invalidateBtn" style="border-color: #e05c5c; color: #e05c5c;">
+            Invalidate all sessions
+        </button>
+        <p class="feedback mt-3" id="session-feedback"></p>
+    </div>
+
+</main>
+</body>
+</html>
