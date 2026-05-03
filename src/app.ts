@@ -21,6 +21,8 @@ app.use(express.static("static", {
     lastModified: true,
 }));
 
+app.set('trust proxy', 1);
+
 app.use(session({
     secret: process.env.SESSION_SECRET!,
     resave: false,
