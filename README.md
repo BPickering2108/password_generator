@@ -111,7 +111,7 @@ For a full breakdown of the application architecture see [ARCHITECTURE.md](ARCHI
 
 ---
 
-Software written by **Bradley Pickering**
+Software written by **Bradley Pickering**  
 Licensed under [MIT License](LICENSE)
 
 ## Acknowledgements

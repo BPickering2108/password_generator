@@ -342,7 +342,6 @@ Transcript_*.txt
 *.diff
 
 data/
-package-lock.json
 
 # =============================================================================
 # EXCEPTIONS
