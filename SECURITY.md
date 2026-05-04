@@ -19,7 +19,7 @@ If you believe you have found a security vulnerability in this project, please d
 - **Email**: security@pickering.cloud
 - **Subject line**: `[SECURITY] Brief description`
 
-If you would like to encrypt your report, our PGP public key is available at [link or fingerprint here].
+If you would like to encrypt your report, our PGP public key is available at [keys.openpgp.org](https://keys.openpgp.org/search?q=1CC7F93DB4D1B6CD4F1E9015E2813157B021C5AA).
 
 ### What to include
 
